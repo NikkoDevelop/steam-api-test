@@ -1,0 +1,14 @@
+version: '3'
+services:
+  chat:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    image: chat_nodejs
+    container_name: aa-chat-service
+    env_file: .env
+    network_mode: bridge
+    ports:
+      - "3500:3500"
+    extra_hosts:
+      - "host.docker.internal:172.17.0.1"
